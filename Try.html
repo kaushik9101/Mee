@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I Love You Dhumketu</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pacifico&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #ffe6f0, #fff);
+      font-family: 'Pacifico', cursive;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 8vw;
+      color: #ff1493;
+      margin-top: 60px;
+      font-family: 'Great Vibes', cursive;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .birthday-msg {
+      font-size: 5vw;
+      max-width: 800px;
+      color: #c71585;
+      margin: 20px auto;
+      padding: 0 40px;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    .chibi-image {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #ff69b4;
+      margin: 20px auto;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+      animation: fadeIn 2.5s ease-in-out;
+    }
+
+    .buttons {
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      background-color: #ff69b4;
+      color: white;
+      transition: 0.3s;
+      min-width: 100px;
+    }
+
+    button:hover {
+      background-color: #ff1493;
+      transform: scale(1.05);
+    }
+
+    .love-you-dhumketu {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 8vw;
+      font-family: 'Great Vibes', cursive;
+      color: #ff1493;
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(255, 20, 147, 0.6);
+      text-shadow: 0 0 20px #ff1493, 0 0 40px #ff69b4;
+      animation: textGlow 2s ease-in-out infinite alternate;
+      z-index: 1000;
+    }
+
+    @keyframes textGlow {
+      0% { text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff1493; }
+      100% { text-shadow: 0 0 25px #ff69b4, 0 0 45px #ff1493; }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) rotate(0deg); }
+      100% { transform: translateY(-200px) rotate(360deg); }
+    }
+
+    .floating {
+      position: absolute;
+      animation: floatUp 10s infinite ease-in;
+      opacity: 0.7;
+    }
+
+    .love-question {
+      font-size: 4vw;
+      color: #ff1493;
+      margin-bottom: 20px;
+      animation: fadeIn 2.5s ease-in-out;
+    }
+
+    #main-content {
+      transition: opacity 1s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <div id="main-content">
+    <h1>I Love You, Dhumketu</h1>
+
+    <div class="birthday-msg">
+      Happy Birthday Dhriti! May your day be filled with endless love, laughter, and sweet memories. You're my sunshine and my stars!
+    </div>
+
+    <img src="https://www.pngkey.com/png/detail/327-3276899_naruto-chibis-images-naruto-chibi-wallpaper-and-background.png" alt="Naruto and Hinata Chibi" class="chibi-image">
+
+    <div class="love-question">
+      <p>Do you love me?</p>
+    </div>
+
+    <div class="buttons">
+      <button onclick="showLove()">Yes</button>
+      <button id="noButton" onmouseover="moveButton()">No</button>
+    </div>
+  </div>
+
+  <div class="love-you-dhumketu">I Love You, Dhumketu</div>
+
+  <script>
+    function showLove() {
+      document.getElementById('main-content').style.opacity = '0';
+      setTimeout(() => {
+        document.getElementById('main-content').style.display = 'none';
+        document.querySelector('.love-you-dhumketu').style.display = 'block';
+        document.body.style.background = "#ffffff";
+      }, 1000);
+    }
+
+    function moveButton() {
+      const btn = document.getElementById('noButton');
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 100);
+      btn.style.position = 'absolute';
+      btn.style.left = x + 'px';
+      btn.style.top = y + 'px';
+    }
+
+    window.onload = function () {
+      for (let i = 0; i < 15; i++) {
+        const heart = document.createElement('div');
+        heart.innerHTML = '💗🥳';
+        heart.style.position = 'absolute';
+        heart.style.fontSize = Math.random() * 30 + 20 + 'px';
+        heart.style.left = Math.random() * window.innerWidth + 'px';
+        heart.style.top = window.innerHeight + Math.random() * 5 + 'px';
+        heart.style.opacity = '0.9';
+        heart.style.animation = `floatUp ${Math.random() * 9 + 4}s infinite ease-in`;
+        document.body.appendChild(heart);
+      }
+    };
+  </script>
+</body>
+</html>
